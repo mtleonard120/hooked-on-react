@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 // packages
 
 // hooks
+import {useStateWithLabel} from 'hooks'
 
 // components
 import {Button, Modal} from 'components'
@@ -28,11 +29,15 @@ const userGreg: IUser = {
 
 // primary component
 export const UseStateDemo: React.FC<IUseStateDemoProps> = props => {
-    const [isModalOpen, setIsModalOpen] = useState(false)
+    const [isModalOpen, setIsModalOpen] = useStateWithLabel(false, 'Is Modal Open?')
     const [user, setUser] = useState<IUser | undefined>()
 
     return (
         <div>
+            <h1>UseState Demo</h1>
+
+            <hr />
+
             <p>{user ? `You are logged in as: ${user.name}` : 'Welcome!'}</p>
 
             <Button
