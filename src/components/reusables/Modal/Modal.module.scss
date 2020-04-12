@@ -1,0 +1,26 @@
+.modal {
+    width: 90vw;
+    max-height: 80vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 1px solid black;
+    border-radius: 4px;
+    width: 700px;
+}
+
+.content {
+    position: relative;
+    padding: 30px;
+}
+
+.cancelButton {
+    position: absolute;
+    top: 0;
+    right: 10px;
+
+    font-size: 20px;
+    height: auto;
+}

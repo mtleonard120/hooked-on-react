@@ -1,0 +1,33 @@
+$borderRadius: 4px;
+$brandMain: darkblue;
+
+.button {
+    border: none;
+    border-radius: $borderRadius;
+    background: $brandMain;
+    color: white;
+    height: 40px;
+
+    &:hover {
+        background: darken($brandMain, 10%);
+    }
+
+    &.disabled {
+        background: lightgray;
+        cursor: not-allowed;
+    }
+
+    padding: 5px 30px;
+}
+
+.link {
+    color: $brandMain;
+    border: none;
+    background: none;
+    padding: 0;
+
+    &:hover {
+        color: darken($brandMain, 10%);
+        background: none;
+    }
+}
