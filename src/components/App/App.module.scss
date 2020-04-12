@@ -1,0 +1,25 @@
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.nav {
+    background: darkblue;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.navItemList {
+    display: flex;
+    align-items: center;
+}
+
+.navItem {
+    color: white;
+    margin-right: 20px;
+}
+
+.homeLink {
+    font-size: 1.25rem;
+    text-decoration: none;
+}

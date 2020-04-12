@@ -1,2 +1,3 @@
-export * from "./App";
-export * from "./reusables";
+export * from './App'
+export * from './pages'
+export * from './reusables'
