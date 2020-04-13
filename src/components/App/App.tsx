@@ -4,13 +4,14 @@ import React from 'react'
 import {BrowserRouter, Switch, Route, Link} from 'react-router-dom'
 
 // components
-import {Home, UseStateDemo} from 'components'
+import {Home, UseStateDemo1} from 'components'
 
 // utils
 import {concatStyles as s} from 'utils'
 
 // styles
 import styles from './App.module.scss'
+import { UseStateDemo2 } from 'components/pages/UseStateDemo2'
 
 export function App() {
     return (
@@ -22,8 +23,12 @@ export function App() {
                             Hooked On React
                         </Link>
 
-                        <Link to='/useStateDemo' className={styles.navItem}>
-                            UseState
+                        <Link to='/useStateDemo1' className={styles.navItem}>
+                            UseState1
+                        </Link>
+
+                        <Link to='/useStateDemo2' className={styles.navItem}>
+                            UseState2
                         </Link>
                     </div>
                 </div>
@@ -31,9 +36,14 @@ export function App() {
 
             <div className={styles.container}>
                 <Switch>
-                    <Route path='/useStateDemo'>
-                        <UseStateDemo />
+                    <Route path='/useStateDemo1'>
+                        <UseStateDemo1 />
                     </Route>
+
+                    <Route path='/useStateDemo2'>
+                        <UseStateDemo2 />
+                    </Route>
+
                     <Route path='/'>
                         <Home />
                     </Route>
