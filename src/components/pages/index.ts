@@ -1,3 +1,4 @@
-export * from "./Home";
-export * from "./UseStateDemo1";
-export * from "./UseStateDemo2";
+export * from './Home'
+export * from './UseEffectDemo'
+export * from './UseStateDemo1'
+export * from './UseStateDemo2'

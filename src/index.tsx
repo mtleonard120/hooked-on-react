@@ -5,6 +5,10 @@ import './index.css'
 
 import {App} from './components'
 
+// register modal root
+import Modal from 'react-modal'
+Modal.setAppElement('#root')
+
 ReactDOM.render(
     <React.StrictMode>
         <App />

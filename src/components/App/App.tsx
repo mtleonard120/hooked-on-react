@@ -4,14 +4,14 @@ import React from 'react'
 import {BrowserRouter, Switch, Route, Link} from 'react-router-dom'
 
 // components
-import {Home, UseStateDemo1} from 'components'
+import {Home, UseStateDemo1, UseEffectDemo} from 'components'
 
 // utils
 import {concatStyles as s} from 'utils'
 
 // styles
 import styles from './App.module.scss'
-import { UseStateDemo2 } from 'components/pages/UseStateDemo2'
+import {UseStateDemo2} from 'components/pages/UseStateDemo2'
 
 export function App() {
     return (
@@ -30,6 +30,10 @@ export function App() {
                         <Link to='/useStateDemo2' className={styles.navItem}>
                             UseState2
                         </Link>
+
+                        <Link to='/useEffectDemo' className={styles.navItem}>
+                            UseEffect
+                        </Link>
                     </div>
                 </div>
             </nav>
@@ -42,6 +46,10 @@ export function App() {
 
                     <Route path='/useStateDemo2'>
                         <UseStateDemo2 />
+                    </Route>
+
+                    <Route path='/useEffectDemo'>
+                        <UseEffectDemo userId='123' />
                     </Route>
 
                     <Route path='/'>
