@@ -68,17 +68,26 @@ export const UseReducerDemo: React.SFC<IUseReducerDemoProps> = ({userId}) => {
     })
 
     // This effect fetches user data on initial render and if the userId prop changes.
-    // Be careful that asynchronous calls don't set state after unmounting...
+    // Notice dispatch does not need to be included in dep array - it's already memoized.
     useEffect(() => {
         console.log('Fetch user effect fired.')
+
+        let isCurrent = true
 
         if (userId) {
             dispatch({type: 'fetchUser'})
 
             CustomerService.fetchCleanedUserDetails(userId).then((user: ICleanedUser) => {
                 console.log('Fetch complete - attempting to set user state...')
-                dispatch({type: 'fetchComplete', payload: {user}})
+
+                if (isCurrent) {
+                    dispatch({type: 'fetchComplete', payload: {user}})
+                }
             })
+        }
+
+        return () => {
+            isCurrent = false
         }
     }, [userId])
 
@@ -86,22 +95,21 @@ export const UseReducerDemo: React.SFC<IUseReducerDemoProps> = ({userId}) => {
         <div>
             <h1>UseReducer Demo</h1>
 
-            <p>
-                Extends our UseEffectDemo component to handle state and its mutations via a reducer.
-            </p>
+            <p>Extends our UseEffectDemo component to handle state and its mutations via a reducer.</p>
 
             <hr />
 
             <p>{user ? `You are logged in as: ${user.name}` : 'Welcome!'}</p>
 
-            <Button onClick={() => user ? dispatch({type: 'logOff'}) : dispatch({type: 'fastLogin', payload: {user: userGreg}})}>
+            <Button
+                onClick={() =>
+                    user ? dispatch({type: 'logOff'}) : dispatch({type: 'fastLogin', payload: {user: userGreg}})
+                }
+            >
                 {user ? 'Log Off' : 'Log In As Greg'}
             </Button>
 
-            <Modal
-                isOpen={isModalOpen}
-                closeModal={() => dispatch({type: 'closeModal'})}
-            >
+            <Modal isOpen={isModalOpen} closeModal={() => dispatch({type: 'closeModal'})}>
                 {isFetchUserLoading ? 'Loading...' : user ? `You're now logged in` : 'Successfully logged off'}.
             </Modal>
         </div>
