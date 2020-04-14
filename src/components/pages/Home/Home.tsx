@@ -16,8 +16,16 @@ export const Home: React.FC<IHomeProps> = props => (
             >
                 here
             </a>
-            . The links in the top nav demonstrate various behaviors of hooks. Pop open your react dev tools and play
-            around with them!
+            . The repo for this app can be found{' '}
+            <a href='https://github.com/mtleonard120/hooked-on-react' target='_blank' rel='noopener noreferrer'>
+                here
+            </a>
+            .
+        </p>
+
+        <p>
+            The links in the top nav demonstrate various behaviors of hooks, and each sequentially builds on the page
+            before. Pop open your react dev tools and play around with them!
         </p>
     </>
 )
