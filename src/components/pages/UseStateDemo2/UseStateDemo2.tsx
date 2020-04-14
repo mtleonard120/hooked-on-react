@@ -13,7 +13,7 @@ import {Button, Modal} from 'components'
 import {userGreg} from 'constant'
 
 // types
-import {ICleanedUser, IRawUser} from 'types'
+import {IRawUser} from 'types'
 
 interface IUseStateDemoProps {
     rawUser?: IRawUser
@@ -26,7 +26,7 @@ export const UseStateDemo2: React.FC<IUseStateDemoProps> = ({rawUser}) => {
 
     // Complex data transform is expensive to run, use lazy initialization to
     // ensure it only runs on the first render.
-    const [user, setUser] = useState<ICleanedUser | undefined>(() => {
+    const [user, setUser] = useState(() => {
         return rawUser ? CustomerService.doComplicatedDataTransform(rawUser) : undefined
     })
 

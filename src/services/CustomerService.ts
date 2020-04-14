@@ -7,17 +7,8 @@ export class CustomerService {
     public static doComplicatedDataTransform = (rawUser: IRawUser) => rawUser as ICleanedUser
 
     // A mock of an api call, does not actually use id
-    public static fetchCleanedUserDetails = (id: string, onSuccess: any) => {
-        mockCall(onSuccess, userGreg, 2000)
-    }
+    public static fetchCleanedUserDetails = (id: string) =>
+        new Promise<ICleanedUser>(function (resolve) {
+            setTimeout(() => resolve(userGreg), 2000)
+        })
 }
-
-// helpers
-const mockCall = (onSuccess: any, dataToReturn: any, delayLength: number) => {
-    delay(delayLength).then(() => onSuccess(dataToReturn))
-}
-
-const delay = (delayLength: number) =>
-    new Promise(function (resolve) {
-        setTimeout(() => resolve(), delayLength)
-    })
