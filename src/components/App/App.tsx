@@ -4,7 +4,7 @@ import React from 'react'
 import {BrowserRouter, Switch, Route, Link} from 'react-router-dom'
 
 // components
-import {Home, UseStateDemo1, UseEffectDemo} from 'components'
+import {Home, UseStateDemo1, UseEffectDemo, UseReducerDemo} from 'components'
 
 // utils
 import {concatStyles as s} from 'utils'
@@ -34,6 +34,11 @@ export function App() {
                         <Link to='/useEffectDemo' className={styles.navItem}>
                             UseEffect
                         </Link>
+
+                        <Link to='/useReducerDemo' className={styles.navItem}>
+                            UseReducer
+                        </Link>
+
                     </div>
                 </div>
             </nav>
@@ -51,6 +56,11 @@ export function App() {
                     <Route path='/useEffectDemo'>
                         <UseEffectDemo userId='123' />
                     </Route>
+
+                    <Route path='/useReducerDemo'>
+                        <UseReducerDemo userId='123' />
+                    </Route>
+
 
                     <Route path='/'>
                         <Home />
