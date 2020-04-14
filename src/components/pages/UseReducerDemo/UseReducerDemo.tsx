@@ -1,4 +1,7 @@
-import React, {useEffect, useReducer} from 'react'
+import React, {useEffect} from 'react'
+
+// packages
+import {useReducer} from 'reinspect'
 
 // services
 import {CustomerService} from 'services'
@@ -57,7 +60,7 @@ const initialState: IUseReducerDemoState = {
 // primary component
 export const UseReducerDemo: React.SFC<IUseReducerDemoProps> = ({userId}) => {
     // local state
-    const [{isModalOpen, isFetchUserLoading, user}, dispatch] = useReducer(reducer, initialState)
+    const [{isModalOpen, isFetchUserLoading, user}, dispatch] = useReducer(reducer, initialState, state => state, 'UseReducerDemo')
 
     // effects
 
