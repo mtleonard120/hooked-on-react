@@ -11,6 +11,7 @@ import {
     UseEffectDemo,
     UseReducerDemo,
     UseContextDemo,
+    UseMemoDemo,
     UseCustomDemo,
 } from 'components'
 
@@ -50,6 +51,10 @@ export function App() {
                             UseContext
                         </Link>
 
+                        <Link to='/useMemoDemo' className={styles.navItem}>
+                            UseMemo
+                        </Link>
+
                         <Link to='/useCustomDemo' className={styles.navItem}>
                             Custom Hook
                         </Link>
@@ -77,6 +82,10 @@ export function App() {
 
                     <Route path='/useContextDemo'>
                         <UseContextDemo userId='123' />
+                    </Route>
+
+                    <Route path='/useMemoDemo'>
+                        <UseMemoDemo />
                     </Route>
 
                     <Route path='/useCustomDemo'>
