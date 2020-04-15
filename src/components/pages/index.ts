@@ -1,5 +1,6 @@
 export * from './Home'
 export * from './UseContextDemo'
+export * from './UseCustomDemo'
 export * from './UseEffectDemo'
 export * from './UseReducerDemo'
 export * from './UseStateDemo1'

@@ -4,7 +4,15 @@ import React from 'react'
 import {BrowserRouter, Switch, Route, Link} from 'react-router-dom'
 
 // components
-import {Home, UseStateDemo1, UseStateDemo2, UseEffectDemo, UseReducerDemo, UseContextDemo} from 'components'
+import {
+    Home,
+    UseStateDemo1,
+    UseStateDemo2,
+    UseEffectDemo,
+    UseReducerDemo,
+    UseContextDemo,
+    UseCustomDemo,
+} from 'components'
 
 // utils
 import {concatStyles as s} from 'utils'
@@ -41,6 +49,10 @@ export function App() {
                         <Link to='/useContextDemo' className={styles.navItem}>
                             UseContext
                         </Link>
+
+                        <Link to='/useCustomDemo' className={styles.navItem}>
+                            Custom Hook
+                        </Link>
                     </div>
                 </div>
             </nav>
@@ -65,6 +77,10 @@ export function App() {
 
                     <Route path='/useContextDemo'>
                         <UseContextDemo userId='123' />
+                    </Route>
+
+                    <Route path='/useCustomDemo'>
+                        <UseCustomDemo />
                     </Route>
 
                     <Route path='/'>
