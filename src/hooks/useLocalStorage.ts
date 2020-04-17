@@ -1,8 +1,23 @@
 // Adapted from https://usehooks.com/useLocalStorage/
 
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
+
+export const useNonRenderBlockingAlert = (msg: string) => {
+    const [isAlertFiring, setIsAlertFiring] = useState(false)
+
+    useEffect(() => {
+        if (isAlertFiring) {
+            alert(msg)
+            setIsAlertFiring(false)
+        }
+    }, [isAlertFiring, msg])
+
+    return () => setIsAlertFiring(true)
+}
 
 export const useLocalStorage = (key: string, initialValue: any) => {
+    const triggerAlert = useNonRenderBlockingAlert(`Stored value for ${key} removed.`)
+
     const [storedValue, setStoredValue] = useState(() => {
         try {
             const item = window.localStorage.getItem(key)
@@ -26,7 +41,8 @@ export const useLocalStorage = (key: string, initialValue: any) => {
     const clearStorage = () => {
         try {
             window.localStorage.removeItem(key)
-            alert(`Stored value for ${key} removed.`)
+            triggerAlert()
+            setStoredValue('')
         } catch (error) {
             console.log(error)
         }
