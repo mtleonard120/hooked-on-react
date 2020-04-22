@@ -15,11 +15,17 @@ import {
     UseCustomDemo,
 } from 'components'
 
+// constants
+import { userGreg } from 'constant'
+
 // utils
 import {concatStyles as s} from 'utils'
 
 // styles
 import styles from './App.module.scss'
+
+// types
+import { IRawUser } from 'types'
 
 export function App() {
     return (
@@ -69,7 +75,7 @@ export function App() {
                     </Route>
 
                     <Route path='/useStateDemo2'>
-                        <UseStateDemo2 />
+                        <UseStateDemo2 rawUser={userGreg as IRawUser}/>
                     </Route>
 
                     <Route path='/useEffectDemo'>
