@@ -26,6 +26,7 @@ export const useLocalStorage = (key: string, initialValue: any) => {
     const clearStorage = () => {
         try {
             window.localStorage.removeItem(key)
+            setStoredValue(initialValue)
             alert(`Stored value for ${key} removed.`)
         } catch (error) {
             console.log(error)
